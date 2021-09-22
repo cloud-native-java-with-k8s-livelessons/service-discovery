@@ -35,6 +35,24 @@ public class ClientApplication {
 
 }
 
+
+
+/ *         var max = 2;
+        var serviceInstances = this.discoveryClient.getInstances("service");
+        Assert.state(serviceInstances.size() >= 2, () -> "there should be " +
+                                                         "at least two instances in the load balancer!");
+        var chosenServiceInstances = new HashSet<ServiceInstance>();
+        while (chosenServiceInstances.size() < max) {
+            var randomIndex = Math.random() * serviceInstances.size();
+            var index = (int) Math.min(randomIndex * 1, serviceInstances.size() - 1);
+            chosenServiceInstances.add(serviceInstances.get(index));
+            System.out.println("there are " + chosenServiceInstances.size() + " elements.");
+        }
+        var requests = Flux.fromIterable(chosenServiceInstances)
+                .flatMap(si -> http.get()
+                        .uri(si.getScheme() + "://" + si.getHost() + ':' + si.getPort()).retrieve().bodyToMono(String.class));
+        return Flux.firstWithSignal(requests).singleOrEmpty();
+ */
 @Log4j2
 @Component
 class HedgeExchangeFilterFunction
